@@ -36,8 +36,7 @@ Ready? Set. Go!
 
 ### Step 1 : Exploit the app
 
-Check what the app contains and search how you can exploit the vulnerability.
-
+Check what the app contains and search how you can exploit the vulnerability it contains.
 
 <details>
   <summary>Hint 1</summary>
@@ -59,7 +58,7 @@ Check what the app contains and search how you can exploit the vulnerability.
 </details>
 
 <details>
-  <summary>Hint 5</summary>
+  <summary>Hint 4</summary>
   Do you know how to trigger a reverse shell ?
   ```bash
   nc -n -l -vvv -p <port>
@@ -82,6 +81,8 @@ Check what the app contains and search how you can exploit the vulnerability.
 </details>
 
 ### Step 2 : Pod access
+
+The goal of this step is to perform a container escape to obtain a shell on the node the pod is implemented on
 
 <details>
   <summary>Hint 1</summary>
@@ -116,6 +117,8 @@ Check what the app contains and search how you can exploit the vulnerability.
 
 ## First attack scenario
 ### Step 3 : First exploit on the node : Retrieve the secret flag from the cluster
+
+The goal of this step is to retrieve a flag located in a secret in kubernetes.
 
 <details>
   <summary>Hint 1</summary>
@@ -164,7 +167,9 @@ Check what the app contains and search how you can exploit the vulnerability.
 </details>
 
 ## Second attack scenario
-### Step 4 : Second exploit on the node : Access to a protected s3 bucket
+### Step 4 : Second exploit on the node : Retrieve aws credentials 
+
+The goal of this step is to retrieve the aws credentials associated to the IAM role of the node.
 
 <details>
   <summary>Hint 1</summary>
@@ -220,7 +225,7 @@ Check what the app contains and search how you can exploit the vulnerability.
 
 ### Step 5 : Retrieve the flag from the bucket
 
-Your goal is to get the flag contained on a bucket.  
+Your goal is to get the flag contained on a bucket using the aws credentials of the IAM role of the node. 
 
 <details>
   <summary>Hint 1</summary>
