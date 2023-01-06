@@ -8,18 +8,7 @@ That's why it is essential that:
 - You experiment and try things that may break. Don't simply copy paste everything from StackOverflow until it passes the test !
 - To keep moving or learn more, please _andon_! It means then whenever you have a question, a doubt, a feedback, call someone from the staff, we'll love to help you.
 
-## Setup your env
-
-First, you need to setup your computer for the dojo.
-
-Start with cloning this repo:
-
-```bash
-git clone https://github.com/padok-team/kubesecu-lab-cours
-cd kubesecu-lab-cours
-```
-
-### Connect to a distant VM
+## Connect to a distant VM
 
 To work efficiently, you will work on a distant VM on which all the following tools are already installed.
 
@@ -40,13 +29,7 @@ To connect to the VM:
 
 ### Bootstrap the environment
 
-To create the insecure infrastructure, follow these steps:
-
-```bash
-chmod +x access-deployments.sh
-./access-deployments.sh
-
-```
+Connect on your ssh machine : `ssh eleve@<Handle>.aws.padok.cloud`
 
 ## Let's attack it !
 Ready? Set. Go!
@@ -65,37 +48,33 @@ Check what the app contains and search how you can exploit the vulnerability.
 <details>
   <summary>Hint 2</summary>
 
-  Try searching for ways to trigger a reverse shell with an image uploader. Check for CVE.
+  Try searching for ways to trigger a reverse shell with an image uploader.
 
 </details>
 
 <details>
   <summary>Hint 3</summary>
 
-  Have you heard of imagemagick ?
-</details>
-
-<details>
-  <summary>Hint 4</summary>
-
-  Check the CVE-2016-3714
+  Have you heard of imagemagick ? Check for CVEs.
 </details>
 
 <details>
   <summary>Hint 5</summary>
-
   Do you know how to trigger a reverse shell ?
   ```bash
-  Use nc -n -l -vvv -p <port>
+  nc -n -l -vvv -p <port>
   ```
 </details>
 
 <details>
   <summary>Solutions Step 1</summary>
+  Use the CVE-2016-3714.
   Listen to incoming connections by performing a :
+
   ```bash
   nc -n -l -vvv -p 443
   ```
+
   Perform a reverse shell by uploading the file :
 
 * [solutions/step1/exploit.mvg](solutions/step1/exploit.mvg)
@@ -107,18 +86,18 @@ Check what the app contains and search how you can exploit the vulnerability.
 <details>
   <summary>Hint 1</summary>
 
-  With what rights are you executing on the pod ?
+  What rights do you have on the pod ?
 </details>
 
 <details>
   <summary>Hint 2</summary>
-  Check the capabilities of the pod with capsh --print
+  
+  Have you heard of container escape ?
 </details>
 
 <details>
   <summary>Hint 3</summary>
-  
-  Have you heard of container escape ?
+  Check the capabilities of the pod with capsh --print
 </details>
 
 <details>
