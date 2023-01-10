@@ -60,6 +60,7 @@ Check what the app contains and search how you can exploit the vulnerability it 
 <details>
   <summary>Hint 4</summary>
   Do you know how to trigger a reverse shell ?
+
   ```bash
   nc -n -l -vvv -p <port>
   ```
@@ -180,8 +181,8 @@ The goal of this step is to retrieve the aws credentials associated to the IAM r
 <details>
   <summary>Hint 2</summary>
 
-  Check the metadata you obtain using the command in the following file. Maybe take a look at superior level metadata.
-  [documentation-metadata]https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
+  Check the metadata you obtain using the command in the following file. Maybe take a look at superior level metadata
+  [documentation-metadata](https://docs.aws.amazon.com/fr_fr/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html).
 </details>
 
 <details>
