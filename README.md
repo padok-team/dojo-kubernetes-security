@@ -36,6 +36,8 @@ Ready? Set. Go!
 
 ### Step 1 : Exploit the app
 
+**Connect to the following address : http://imagetragick.cs.padok.school/**
+
 Check what the app contains and search how you can exploit the vulnerability it contains.
 
 <details>
