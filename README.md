@@ -43,29 +43,43 @@ Check what the app contains and search how you can exploit the vulnerability it 
 <details>
   <summary>Hint 1</summary>
 
-  How can you interact with the server ?
+  How can you interact with the server ? Observe the name of the app (check the url).
 </details>
 
 <details>
   <summary>Hint 2</summary>
 
-  Try searching for ways to trigger a reverse shell with an image uploader.
+  Try searching for ways to trigger a reverse shell with an image uploader on imagetragick apps.
 
 </details>
 
 <details>
   <summary>Hint 3</summary>
 
-  Have you heard of imagemagick ? Check for CVEs.
+  Have you heard of imagemagick ? Check for CVEs. Use a file .mvg to inject whatever payload you want.
 </details>
 
 <details>
   <summary>Hint 4</summary>
   Do you know how to trigger a reverse shell ?
 
+  Listen to the port 443 on your lab machine. 
+  Kubernetes pods are not allowed to communicate with the outside on another port than 443.
+
   ```bash
-  nc -n -l -vvv -p <port>
+  sudo nc -n -l -vvv -p 443
   ```
+</details>
+
+#### Bonus Step 2 : 
+
+Spawn an interactive shell. Check how you can spawn a better shell than your current dummy shell.
+
+<details>
+  <summary>Bonus Hint 1</summary>
+  Check out this :
+
+  [article](https://fahmifj.medium.com/get-a-fully-interactive-reverse-shell-b7e8d6f5b1c1)
 </details>
 
 <details>
@@ -74,7 +88,7 @@ Check what the app contains and search how you can exploit the vulnerability it 
   Listen to incoming connections by performing a :
 
   ```bash
-  nc -n -l -vvv -p 443
+  sudo nc -n -l -vvv -p 443
   ```
 
   Perform a reverse shell by uploading the file :
@@ -91,6 +105,8 @@ The goal of this step is to perform a container escape to obtain a shell on the 
   <summary>Hint 1</summary>
 
   What rights do you have on the pod ?
+  Check with what user you are connected : whoami.
+  Check the capabilities of the pod with capsh --print.
 </details>
 
 <details>
@@ -101,13 +117,13 @@ The goal of this step is to perform a container escape to obtain a shell on the 
 
 <details>
   <summary>Hint 3</summary>
-  Check the capabilities of the pod with capsh --print
+  Check how you can use the command nsenter to escape a container.
 </details>
 
 <details>
   <summary>Hint 4</summary>
   
-  Check how you can use the command nsenter to escape a container.
+  
 </details>
 
 <details>
@@ -115,7 +131,11 @@ The goal of this step is to perform a container escape to obtain a shell on the 
   Check the capabilities of the container.
   Use nsenter to perform the container escape.
 
-  [solutions/step2/solution.sh](solutions/step2/solution.sh)
+*  [solutions/step2/solution.sh](solutions/step2/solution.sh)
+
+* [Interesting video](https://www.youtube.com/watch?v=sHp0Q3rvamk)
+
+* [Interesting article](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation)
 </details>
 
 ## First attack scenario
@@ -145,13 +165,13 @@ The goal of this step is to retrieve a flag located in a secret in kubernetes.
 <details>
   <summary>Hint 4</summary>
   
-  Try to grep the mount command with "api"
+  Try to grep the mount command with "api".
 </details>
 
 <details>
   <summary>Hint 5</summary>
   
-  Check in the environment variables if you can possibly find an interesting ip
+  Check in the environment variables if you can possibly find an interesting ip.
 </details>
 
 <details>
