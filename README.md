@@ -14,7 +14,7 @@ To work efficiently, you will work on a distant VM on which all the following to
 
 - `git`: Version your code and collaborate
 - [`aws CLI`](https://docs.aws.amazon.com/fr_fr/cli): The CLI to interact with AWS.
-- [`kubectl`](https://docs.aws.amazon.com/fr_fr/cli): The CLI to interact with AWS.
+- [`kubectl`](https://docs.aws.amazon.com/fr_fr/cli): The CLI to interact with Kubernetes.
 
 To connect to the VM:
 
